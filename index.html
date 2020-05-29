@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Mix blend modes</title>
+
+    <style>
+      body {
+        --txt-color: black;
+        --blend-mode: normal;
+        margin: 0;
+      }
+
+      section {
+        margin: 1rem;
+        padding: .5rem;
+        border: 1px solid black;
+      }
+
+      div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4rem;
+      }
+
+      p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--txt-color);
+        mix-blend-mode: var(--blend-mode);
+      }
+    </style>
+
+    <script>
+      function updateColor(event) {
+        event.target.parentNode.style.setProperty('--bg-color', event.target.value)
+      }
+
+      function updateTextColor(event) {
+        document.body.style.setProperty('--txt-color', event.target.value)
+      }
+
+      function updateBlendMode(event) {
+        document.body.style.setProperty('--blend-mode', event.target.value)
+      }
+    </script>
+</head>
+
+<body>
+  <section>
+    <label>Text color: <input type="color" value="" onchange="updateTextColor(event)"/></label>
+    <label>
+      Blend mode:
+      <select onchange="updateBlendMode(event)">
+        <option value="normal">normal</option>
+        <option value="multiply">multiply</option>
+        <option value="screen">screen</option>
+        <option value="overlay">overlay</option>
+        <option value="darken">darken</option>
+        <option value="lighten">lighten</option>
+        <option value="color-dodge">color</option>
+        <option value="color-burn">color</option>
+        <option value="hard-light">hard</option>
+        <option value="soft-light">soft</option>
+        <option value="difference">difference</option>
+        <option value="exclusion">exclusion</option>
+        <option value="hue">hue</option>
+        <option value="saturation">saturation</option>
+        <option value="color">color</option>
+        <option value="luminosity">luminosity</option>
+      </select>
+    </label>
+  </section>
+  <div style="background-color: var(--bg-color, #ffffff);">
+    <p>Example text</p>
+    <input type="color" value="#ffffff" onchange="updateColor(event)"/>
+  </div>
+  <div style="background-color: var(--bg-color, #f5f5f5);">
+    <p>Example text</p>
+    <input type="color" value="#f5f5f5" onchange="updateColor(event)"/>
+  </div>
+  <div style="background-color: var(--bg-color, #b9770e);">
+    <p>Example text</p>
+    <input type="color" value="#b9770e" onchange="updateColor(event)"/>
+  </div>
+  <div style="background-color: var(--bg-color, #28b463);">
+    <p>Example text</p>
+    <input type="color" value="#28b463" onchange="updateColor(event)"/>
+  </div>
+  <div style="background-color: var(--bg-color, #ee6e00);">
+    <p>Example text</p>
+    <input type="color" value="#ee6e00" onchange="updateColor(event)"/>
+  </div>
+  <div style="background-color: var(--bg-color, #262670);">
+    <p>Example text</p>
+    <input type="color" value="#262670" onchange="updateColor(event)"/>
+  </div>
+</body>
+
+</html>
